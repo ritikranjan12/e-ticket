@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+ @keyframes train-move {
+    0% {
+      left: -20%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  
+  .animate-train {
+    animation: train-move 12s linear infinite;
+  }
+ 

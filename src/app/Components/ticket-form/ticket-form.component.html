@@ -1,0 +1,67 @@
+<div class="container mx-auto px-4 py-8 max-w-md" *ngIf="!showTicket">
+    <form class="bg-black shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-white text-lg font-bold mb-2" for="numTickets">
+          Number of Tickets
+        </label>
+        <input
+          #numsTicket
+          class="appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+          id="numTickets"
+          type="number"
+          min="1"
+          max="7"
+          required
+        />
+      </div>
+      <div class="flex items-center justify-center">
+        <button
+          type="submit"
+          (click)="onSubmit(+numsTicket.value)"
+          class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 px-6 rounded-xl shadow-xl shadow-amber-400"
+        >
+          Book Tickets
+        </button>
+      </div>
+    </form>
+  </div>
+  
+  <div class="flex flex-col items-center my-4 text-white" *ngIf="showTicket">
+    <div class="flex">
+      <div class="text-center text-white font-bold">
+        Your Tickets {{seatBooked.length > 1 ? "are " : "is "}}:
+      </div>
+      <span *ngFor="let data of seatBooked" class="mr-2 mx-2 text-center">{{ data }},</span>
+    </div>
+  </div>
+  
+  <div class="text-center text-red-600 font-bold oldstyle-nums" *ngIf="showTicket">
+    NOTE: Each Single Blue Block is a Single Row.
+  </div>
+  
+  <div class="flex flex-col items-center text-white" *ngIf="showTicket">
+    <div *ngFor="let innerarray of seatRows" class="flex flex-wrap justify-between space-x-2 border-4 border-blue-600 my-4 w-full md:w-1/2">
+        
+      <div *ngFor="let item of innerarray" class="ticket px-1 md:px-4 border-2 border-amber-400 py-2 w-1/8 md:w-auto my-2 text-black space-between" [ngClass]="{'bg-red-500 text-white': item.status === 'Booked', 'bg-green-500': item.status !== 'Booked'}">
+        <div class="text-center">
+          {{ item.seatNumber }}
+        </div>
+        <div>
+          {{ item.status }}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="showTicket">
+    <div class="container mx-auto mt-auto my-4 overflow-hidden bottom-0">
+      <div class="relative bg-black h-14 rounded-full border-b-4 border-b-red-500 border-l-4 border-l-amber-500 border-r-4 border-r-amber-500"
+        >
+        <img
+          src="../assets/engine.png"
+          class="absolute h-14 w-24 bg-gray-700 rounded-full animate-train"
+        />
+      </div>
+    </div>
+  </div>
+  
