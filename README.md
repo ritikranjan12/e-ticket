@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## DataBase Structure
 
-![alt text](https://github.com/ritikranjan12/e-ticket/blob/master/src/assets/database.png)
+![alt text](https://github.com/ritikranjan12/e-ticket/blob/master/src/assets/database1.png)
 
 
 ## Development server
