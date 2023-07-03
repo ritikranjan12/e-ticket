@@ -4,13 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## DataBase Structure
 
-   +-----------------+
-   |    tickets      |
-   +-----------------+
-   | seatNumber [PK] |
-   | created_at      |
-   | status          |
-   +-----------------+
+![alt text](https://github.com/ritikranjan12/e-ticket/blob/master/src/assets/database.png)
 
 
 ## Development server
